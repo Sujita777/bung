@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>THE SJ Dimond— เครื่องประดับเพชรแท้ คุณภาพระดับสากล</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce" id="announceBar">
+  ✦ จัดส่งฟรีทั่วประเทศ &nbsp;|&nbsp; ใบรับรองเพชร GIA ทุกชิ้น &nbsp;|&nbsp; คืนสินค้าภายใน 30 วัน ✦
+  <button onclick="document.getElementById('announceBar').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;margin-left:20px;font-size:1rem;">×</button>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="mainNav" style="top:40px">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">THE SJ <span>Diamond</span></a>
+    <ul class="nav-links">
+      <li><a href="#collections" onclick="smoothScroll('collections')">คอลเลกชัน</a></li>
+      <li><a href="#products" onclick="smoothScroll('products')">สินค้า</a></li>
+      <li><a href="#about" onclick="smoothScroll('about')">เกี่ยวกับเรา</a></li>
+      <li><a href="#reviews" onclick="smoothScroll('reviews')">รีวิว</a></li>
+      <li><a href="#contact" onclick="smoothScroll('contact')">ติดต่อ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-search-btn" onclick="toggleSearch()" title="ค้นหา">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-admin-btn" onclick="openAdmin()">⚙ Admin</button>
+      <button class="nav-cart-btn cart-badge" onclick="openCart()" title="ตะกร้าสินค้า">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" onclick="toggleMobileMenu()" aria-label="เมนู">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- SEARCH BAR -->
+<div class="search-bar" id="searchBar">
+  <div class="search-inner">
+    <input class="search-input" id="searchInput" type="text" placeholder="ค้นหาเครื่องประดับ เช่น แหวนเพชร, สร้อยทอง..." oninput="handleSearch(this.value)"/>
+    <button class="btn btn-gold" onclick="handleSearch(document.getElementById('searchInput').value)">ค้นหา</button>
+    <button style="background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:1.2rem" onclick="toggleSearch()">×</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">คอลเลกชันพิเศษ ปี 2026</p>
+    <h1 class="hero-title">THE SJ<br><em>Dimond</em></h1>
+    <p class="hero-sub">เครื่องประดับเพชรแท้ &nbsp;•&nbsp; คุณภาพระดับสากล</p>
+    <div class="hero-actions">
+      <button class="btn btn-gold" onclick="smoothScroll('products')">ดูสินค้าทั้งหมด</button>
+      <button class="btn btn-ghost" onclick="smoothScroll('about')">เรื่องราวของเรา</button>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    เลื่อนลง
+  </div>
+</section>
+
+<!-- CATEGORY SECTION -->
+<section class="categories" id="collections">
+  <div class="container">
+    <h2 class="section-title">คอลเลกชันของเรา</h2>
+    <p class="section-sub">เลือกหมวดหมู่</p>
+    <div class="cat-grid">
+      <div class="cat-card cat-card-1" onclick="filterCategory('แหวน')">
+        <div class="cat-icon"><img src="https://www.cartier.com/dw/image/v2/BGTJ_PRD/on/demandware.static/-/Sites-cartier-master/default/dw5e9094ae/images/large/a7883233f7f654ccb143cb5e4b4f7bcf.png?sw=350&sh=350&sm=fit&sfrm=png" alt=""></div>
+        <div class="cat-info">
+          <div class="cat-name">แหวน</div>
+          <div class="cat-count" id="ring-count">— ชิ้น</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+      <div class="cat-card cat-card-2" onclick="filterCategory('สร้อยคอ')">
+        <div class="cat-card-bg"></div>
+        <div class="cat-icon"><img src="https://image.makewebeasy.net/makeweb/m_1920x0/bUZQ6yW1r/DefaultData/N_01.jpg" alt=""></div>
+        <div class="cat-info">
+          <div class="cat-name">สร้อยคอ</div>
+          <div class="cat-count" id="necklace-count">— ชิ้น</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+      <div class="cat-card cat-card-3" onclick="filterCategory('ต่างหู')">
+        <div class="cat-card-bg"></div>
+        <div class="cat-icon"><img src=https://image.makewebeasy.net/makeweb/m_1920x0/bUZQ6yW1r/DefaultData/Platform_product_03.jpg?v=202405291424" alt=""></div>
+        <div class="cat-info">
+          <div class="cat-name">ต่างหู</div>
+          <div class="cat-count" id="earring-count">— ชิ้น</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+      <div class="cat-card cat-card-4" onclick="filterCategory('กำไล')">
+        <div class="cat-card-bg"></div>
+        <div class="cat-icon"><img src="https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_186/5723170_png/sublima-%E0%B8%81%E0%B8%B3%E0%B9%84%E0%B8%A5--%E0%B8%82%E0%B8%B2%E0%B8%A7--%E0%B9%80%E0%B8%84%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%9A%E0%B8%A3%E0%B8%B9%E0%B8%97%E0%B8%B5%E0%B9%80%E0%B8%99%E0%B8%B5%E0%B8%A2%E0%B8%A1-swarovski-5723170.png" alt=""></div>
+        <div class="cat-info">
+          <div class="cat-name">กำไล</div>
+          <div class="cat-count" id="bracelet-count">— ชิ้น</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT FILTER & GRID -->
+<section class="filter-section" id="products">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterCategory('ทั้งหมด',this)">ทั้งหมด</button>
+        <button class="filter-tab" onclick="filterCategory('แหวน',this)">แหวน 💍</button>
+        <button class="filter-tab" onclick="filterCategory('สร้อยคอ',this)">สร้อยคอ 📿</button>
+        <button class="filter-tab" onclick="filterCategory('ต่างหู',this)">ต่างหู ✨</button>
+        <button class="filter-tab" onclick="filterCategory('กำไล',this)">กำไล 🔮</button>
+      </div>
+      <div class="filter-sort">
+        <label>เรียงโดย:</label>
+        <select onchange="sortProducts(this.value)">
+          <option value="default">แนะนำ</option>
+          <option value="price-asc">ราคา: น้อย → มาก</option>
+          <option value="price-desc">ราคา: มาก → น้อย</option>
+          <option value="name">ชื่อ A-Z</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="products-section">
+  <div class="container">
+    <div class="products-grid" id="productsGrid"></div>
+    <div id="noResults" class="hidden" style="text-align:center;padding:60px;color:var(--text-muted)">
+      <div style="font-size:3rem;margin-bottom:16px">🔍</div>
+      <p>ไม่พบสินค้าที่ค้นหา</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature"><div class="feature-icon">🚚</div><h4>จัดส่งฟรีทั่วประเทศ</h4><p>ประกันภัยระหว่างขนส่ง ถึงมือใน 1–3 วัน</p></div>
+      <div class="feature"><div class="feature-icon">🏅</div><h4>ใบรับรอง GIA</h4><p>รับประกันตลอดชีพ บริการซ่อมและขัดเงาฟรี</p></div>
+      <div class="feature"><div class="feature-icon">🔄</div><h4>คืนสินค้า 30 วัน</h4><p>คืนเงินเต็มจำนวน ไม่มีเงื่อนไขซับซ้อน</p></div>
+      <div class="feature"><div class="feature-icon">💎</div><h4>เพชรแท้ 100%</h4><p>คัดสรรเพชรคุณภาพสูงจากแหล่งผลิตที่ได้มาตรฐาน</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-img-main">💎</div>
+        <div class="about-img-accent">✦</div>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">เรื่องราวของเรา</p>
+        <h2>ความงามที่ถ่ายทอดผ่านทุกชิ้นงาน</h2>
+        <p>THE CARAT ก่อตั้งขึ้นด้วยความเชื่อว่าเครื่องประดับไม่ใช่แค่เครื่องตกแต่ง แต่คือการบันทึกช่วงเวลาพิเศษในชีวิต เราคัดสรรเฉพาะเพชรและโลหะมีค่าจากแหล่งที่ได้รับการรับรองมาตรฐานระดับสากล</p>
+        <p>ช่างฝีมือของเราทำงานด้วยความพิถีพิถันในทุกรายละเอียด เพื่อให้คุณได้รับชิ้นงานที่สมบูรณ์แบบที่สุดและคู่ควรกับทุกโอกาสในชีวิต</p>
+        <div class="about-stats">
+          <div class="about-stat"><div class="about-stat-num">15+</div><div class="about-stat-label">ปีแห่งประสบการณ์</div></div>
+          <div class="about-stat"><div class="about-stat-num">3,200+</div><div class="about-stat-label">ลูกค้าพึงพอใจ</div></div>
+          <div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-label">เพชรแท้ GIA</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <h2 class="section-title">รีวิวจากลูกค้า</h2>
+    <p class="section-sub">ความประทับใจจริงจากลูกค้าของเรา</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">เพชรสวยมาก เจียระไนได้คมเป็นประกายมาก บริการดีเยี่ยม แพ็คเกจหรูหรา ประทับใจมากค่ะ</p>
+        <div class="review-author"><div class="review-avatar">👩</div><div><div class="review-name">คุณพิมพ์ลดา</div><div class="review-product">แหวนเพชรโซลิแทร์ 1.2ct</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">ซื้อแหวนหมั้นที่นี่ค่ะ เพชรสวยกว่าที่คิด ใบเซอร์ครบ พนักงานให้คำแนะนำดีมาก คุ้มค่าทุกบาทค่ะ</p>
+        <div class="review-author"><div class="review-avatar">👱‍♀️</div><div><div class="review-name">คุณเนภัสสร</div><div class="review-product">แหวนหมั้นเพชรรูปหัวใจ</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">ซื้อสร้อยคอเพชรให้ภรรยาครับ คุณภาพเยี่ยม ราคายุติธรรม จัดส่งรวดเร็ว กล่องสวยหรูมาก ประทับใจครับ</p>
+        <div class="review-author"><div class="review-avatar">👨</div><div><div class="review-name">คุณธนวัฒน์</div><div class="review-product">สร้อยคอเพชร Princess Cut</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section style="padding:80px 0;background:var(--cream)" id="contact">
+  <div class="container">
+    <h2 class="section-title">ติดต่อเรา</h2>
+    <p class="section-sub">เยี่ยมชมหน้าร้านหรือสอบถามทางออนไลน์</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:860px;margin:0 auto;text-align:center">
+      <div style="padding:32px;background:var(--white);border-radius:2px;box-shadow:var(--shadow-soft)">
+        <div style="font-size:2rem;color:var(--gold);margin-bottom:12px">📍</div>
+        <h4 style="font-family:var(--font-display);font-weight:300;margin-bottom:8px">ที่ตั้ง</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7">สยามพารากอน ชั้น 1<br>เลขที่ 991 ถ.พระราม 1<br>แขวงปทุมวัน กรุงเทพฯ 10330</p>
+      </div>
+      <div style="padding:32px;background:var(--white);border-radius:2px;box-shadow:var(--shadow-soft)">
+        <div style="font-size:2rem;color:var(--gold);margin-bottom:12px">⏰</div>
+        <h4 style="font-family:var(--font-display);font-weight:300;margin-bottom:8px">เวลาทำการ</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7">เปิดทุกวัน<br>10:00 – 21:00 น.<br>รวมวันหยุดนักขัตฤกษ์</p>
+      </div>
+      <div style="padding:32px;background:var(--white);border-radius:2px;box-shadow:var(--shadow-soft)">
+        <div style="font-size:2rem;color:var(--gold);margin-bottom:12px">📞</div>
+        <h4 style="font-family:var(--font-display);font-weight:300;margin-bottom:8px">ช่องทางติดต่อ</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7">โทร: 02-123-4567<br>Line: @thecarat<br>Email: info@thecarat.co.th</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">THE <span>CARAT</span></div>
+        <p>เครื่องประดับเพชรแท้คุณภาพระดับสากล ทุกชิ้นงานผ่านการรับรองมาตรฐาน GIA คัดสรรด้วยความพิถีพิถัน</p>
+        <div class="footer-social">
+          <a class="social-link" href="#" title="Facebook">f</a>
+          <a class="social-link" href="#" title="Instagram">ig</a>
+          <a class="social-link" href="#" title="Line">L</a>
+          <a class="social-link" href="#" title="TikTok">tt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>สินค้า</h4>
+        <ul>
+          <li><a href="#" onclick="filterCategory('แหวน')">แหวน</a></li>
+          <li><a href="#" onclick="filterCategory('สร้อยคอ')">สร้อยคอ</a></li>
+          <li><a href="#" onclick="filterCategory('ต่างหู')">ต่างหู</a></li>
+          <li><a href="#" onclick="filterCategory('กำไล')">กำไล</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>บริการ</h4>
+        <ul>
+          <li><a href="#">จัดส่งสินค้า</a></li>
+          <li><a href="#">รับประกันสินค้า</a></li>
+          <li><a href="#">คืนสินค้า</a></li>
+          <li><a href="#">ซ่อมและขัดเงา</a></li>
+          <li><a href="#">สั่งทำพิเศษ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>ช่วยเหลือ</h4>
+        <ul>
+          <li><a href="#">คู่มือการวัดไซส์</a></li>
+          <li><a href="#">วิธีดูแลเครื่องประดับ</a></li>
+          <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
+          <li><a href="#">เงื่อนไขการใช้งาน</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Carat — เครื่องประดับเพชรแท้คุณภาพระดับสากล</span>
+      <span>💳 VisaCard · MasterCard · PromptPay · TrueMoney</span>
+    </div>
+  </div>
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="overlay" id="modalOverlay" onclick="closeProductModal()"></div>
+<div class="modal" id="productModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProductModal()">×</button>
+    <div class="modal-grid">
+      <div class="modal-img">
+        <div class="modal-img-zoom" id="modalImgZoom" title="คลิกเพื่อซูมดู"></div>
+      </div>
+      <div class="modal-content">
+        <div class="modal-cat" id="modalCat"></div>
+        <h2 class="modal-name" id="modalName"></h2>
+        <div class="modal-price-wrap">
+          <span class="modal-price" id="modalPrice"></span>
+          <span class="modal-price-old" id="modalPriceOld"></span>
+        </div>
+        <div class="modal-specs">
+          <h4>รายละเอียดสินค้า</h4>
+          <div class="specs-grid" id="modalSpecs"></div>
+        </div>
+        <div class="modal-size-section" id="modalSizeSection" style="display:none">
+          <h4>เลือกไซส์</h4>
+          <div class="size-options" id="modalSizeOptions"></div>
+          <span class="size-guide-link" onclick="openSizeGuide()">📏 ดูคู่มือวัดไซส์</span>
+        </div>
+        <div class="modal-qty">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <span class="qty-display" id="qtyDisplay">1</span>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-gold" onclick="addToCartFromModal()">หยิบใส่ตะกร้า</button>
+          <button class="btn btn-outline" onclick="toggleWishlistFromModal()">♡ Wishlist</button>
+        </div>
+        <div class="modal-cert">
+          <span>🏅</span>
+          <span>ใบรับรองเพชร GIA · รับประกันตลอดชีพ · คืนสินค้าภายใน 30 วัน</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SIZE GUIDE MODAL -->
+<div class="overlay" id="sizeGuideOverlay" onclick="closeSizeGuide()"></div>
+<div class="size-guide-modal" id="sizeGuideModal">
+  <div class="size-guide-box">
+    <button class="modal-close" onclick="closeSizeGuide()">×</button>
+    <h2>📏 คู่มือวัดไซส์นิ้ว</h2>
+    <p>วิธีหาไซส์แหวนที่พอดีกับนิ้วของคุณ เพื่อลดปัญหาการสั่งซื้อผิดไซส์</p>
+    <div class="size-steps">
+      <div class="size-step"><div class="size-step-num">1</div><p><strong>เตรียมสิ่งที่ต้องการ:</strong> เส้นด้ายหรือแถบกระดาษบาง ดินสอหรือปากกา และไม้บรรทัด</p></div>
+      <div class="size-step"><div class="size-step-num">2</div><p><strong>พันรอบนิ้ว:</strong> พันเส้นด้ายรอบโคนนิ้วที่ต้องการสวมแหวน ให้แน่นพอดี ไม่หลวมหรือแน่นเกินไป</p></div>
+      <div class="size-step"><div class="size-step-num">3</div><p><strong>ทำเครื่องหมาย:</strong> ทำเครื่องหมายจุดที่เส้นด้ายต่อกัน แล้ววัดความยาวเส้นด้ายด้วยไม้บรรทัด</p></div>
+      <div class="size-step"><div class="size-step-num">4</div><p><strong>คำนวณ:</strong> หารความยาวที่วัดได้ด้วย 3.14 จะได้ขนาดเส้นผ่านศูนย์กลาง (เส้นผ่านศูนย์กลาง ÷ 3.14 × ปรับตามตาราง)</p></div>
+      <div class="size-step"><div class="size-step-num">5</div><p><strong>เวลาที่ดีที่สุด:</strong> วัดในช่วงบ่ายหรือเย็น เพราะนิ้วมักบวมเล็กน้อยในช่วงนั้น และควรวัดซ้ำ 2-3 ครั้ง</p></div>
+    </div>
+    <table class="size-table">
+      <thead><tr><th>ไซส์ TH</th><th>เส้นรอบวง (มม.)</th><th>เส้นผ่านศูนย์กลาง (มม.)</th><th>ไซส์ US</th><th>ไซส์ EU</th></tr></thead>
+      <tbody>
+        <tr><td>46</td><td>46.8</td><td>14.9</td><td>4</td><td>46.5</td></tr>
+        <tr><td>47</td><td>47.8</td><td>15.2</td><td>4.5</td><td>47.8</td></tr>
+        <tr><td>49</td><td>49.3</td><td>15.7</td><td>5</td><td>49.3</td></tr>
+        <tr><td>50</td><td>50.3</td><td>16.0</td><td>5.5</td><td>50.3</td></tr>
+        <tr><td>51</td><td>51.5</td><td>16.4</td><td>6</td><td>51.5</td></tr>
+        <tr><td>52</td><td>52.5</td><td>16.7</td><td>6.5</td><td>52.5</td></tr>
+        <tr><td>54</td><td>53.8</td><td>17.1</td><td>7</td><td>53.8</td></tr>
+        <tr><td>55</td><td>55.0</td><td>17.5</td><td>7.5</td><td>55.0</td></tr>
+        <tr><td>56</td><td>56.3</td><td>17.9</td><td>8</td><td>56.3</td></tr>
+        <tr><td>57</td><td>57.5</td><td>18.3</td><td>8.5</td><td>57.5</td></tr>
+        <tr><td>59</td><td>58.8</td><td>18.7</td><td>9</td><td>58.8</td></tr>
+        <tr><td>60</td><td>60.0</td><td>19.1</td><td>9.5</td><td>60.0</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;font-size:0.78rem;color:var(--text-muted)">* หากไม่แน่ใจ แนะนำให้เลือกไซส์ใหญ่กว่า หรือติดต่อพนักงานเพื่อขอคำแนะนำ</p>
+  </div>
+</div>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h2>ตะกร้าสินค้า <span style="font-size:0.9rem;color:var(--text-muted)" id="cartItemCount"></span></h2>
+    <button class="cart-close" onclick="closeCart()">×</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">🛍️</div>
+      <p>ตะกร้าของคุณว่างเปล่า</p>
+      <br><button class="btn btn-gold" onclick="closeCart()" style="margin-top:8px">เลือกชมสินค้า</button>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span>ยอดรวม</span>
+      <span class="cart-subtotal-price" id="cartTotal">฿0</span>
+    </div>
+    <p class="cart-shipping-note">✓ จัดส่งฟรีทั่วประเทศ</p>
+    <button class="cart-checkout" onclick="openCheckout()">ดำเนินการชำระเงิน →</button>
+    <button class="btn btn-outline" style="width:100%;justify-content:center" onclick="closeCart()">เลือกสินค้าต่อ</button>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-box">
+    <div class="checkout-header">
+      <h2>ชำระเงิน</h2>
+      <button class="modal-close" onclick="closeCheckout()">×</button>
+    </div>
+    <div class="checkout-body">
+      <div>
+        <div class="checkout-section">
+          <h3>ข้อมูลผู้สั่งซื้อ</h3>
+          <div class="checkout-field"><label>ชื่อ-นามสกุล</label><input type="text" id="co-name" placeholder="กรุณากรอกชื่อ-นามสกุล"/></div>
+          <div class="checkout-field"><label>เบอร์โทรศัพท์</label><input type="tel" id="co-phone" placeholder="08X-XXX-XXXX"/></div>
+          <div class="checkout-field"><label>อีเมล</label><input type="email" id="co-email" placeholder="email@example.com"/></div>
+        </div>
+        <div class="checkout-section" style="margin-top:24px">
+          <h3>ที่อยู่จัดส่ง</h3>
+          <div class="checkout-field"><label>ที่อยู่</label><textarea id="co-addr" rows="2" placeholder="บ้านเลขที่ ถนน ซอย"></textarea></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="checkout-field"><label>จังหวัด</label><input type="text" id="co-province" placeholder="กรุงเทพมหานคร"/></div>
+            <div class="checkout-field"><label>รหัสไปรษณีย์</label><input type="text" id="co-zip" placeholder="10110"/></div>
+          </div>
+        </div>
+        <div class="checkout-section" style="margin-top:24px">
+          <h3>ช่องทางชำระเงิน</h3>
+          <div class="payment-methods" id="paymentMethods">
+            <label class="payment-method selected" onclick="selectPayment(this,'transfer')">
+              <input type="radio" name="payment" checked/><span class="payment-method-label"><span class="payment-icon">🏦</span> โอนผ่านบัญชีธนาคาร</span>
+            </label>
+            <label class="payment-method" onclick="selectPayment(this,'promptpay')">
+              <input type="radio" name="payment"/><span class="payment-method-label"><span class="payment-icon">📱</span> PromptPay</span>
+            </label>
+            <label class="payment-method" onclick="selectPayment(this,'credit')">
+              <input type="radio" name="payment"/><span class="payment-method-label"><span class="payment-icon">💳</span> บัตรเครดิต / เดบิต</span>
+            </label>
+            <label class="payment-method" onclick="selectPayment(this,'truemoney')">
+              <input type="radio" name="payment"/><span class="payment-method-label"><span class="payment-icon">🔴</span> TrueMoney Wallet</span>
+            </label>
+            <label class="payment-method" onclick="selectPayment(this,'installment')">
+              <input type="radio" name="payment"/><span class="payment-method-label"><span class="payment-icon">📆</span> ผ่อนชำระ 0% (3/6/10 เดือน)</span>
+            </label>
+          </div>
+          <div id="paymentDetail" style="background:var(--cream);padding:14px;border-radius:2px;font-size:0.82rem;color:var(--text-muted);margin-top:8px">
+            ธนาคารกสิกรไทย: 123-4-56789-0 / ชื่อ: THE CARAT CO.,LTD.
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="checkout-section">
+          <h3>สรุปคำสั่งซื้อ</h3>
+          <div class="checkout-order-summary" id="orderSummary"></div>
+          <div class="guarantee-badges">
+            <div class="guarantee-badge">🔒 SSL Secure</div>
+            <div class="guarantee-badge">🏅 GIA Certified</div>
+            <div class="guarantee-badge">🔄 30-Day Return</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="checkout-footer">
+      <button class="btn btn-outline" onclick="closeCheckout()">ยกเลิก</button>
+      <button class="btn btn-gold" onclick="placeOrder()">ยืนยันคำสั่งซื้อ →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-nav">
+    <div class="admin-nav-logo">THE <span>CARAT</span> — Admin</div>
+    <button class="admin-close-btn" onclick="closeAdmin()">× ปิด Admin</button>
+  </div>
+  <div class="admin-body">
+    <div class="admin-sidebar">
+      <div class="admin-menu-item active" onclick="showAdminTab('dashboard',this)">📊 Dashboard</div>
+      <div class="admin-menu-item" onclick="showAdminTab('products-admin',this)">💍 จัดการสินค้า</div>
+      <div class="admin-menu-item" onclick="showAdminTab('orders-admin',this)">📦 คำสั่งซื้อ</div>
+      <div class="admin-menu-item" onclick="showAdminTab('reviews-admin',this)">⭐ รีวิว</div>
+    </div>
+    <div class="admin-content">
+
+      <!-- DASHBOARD TAB -->
+      <div class="admin-tab-content active" id="tab-dashboard">
+        <h1 class="admin-page-title">Dashboard</h1>
+        <p class="admin-page-sub">ภาพรวมร้านค้า THE CARAT</p>
+        <div class="admin-stats-grid" id="adminStatsGrid">
+          <div class="admin-stat-card"><div class="admin-stat-num" id="statProducts">0</div><div class="admin-stat-label">สินค้าทั้งหมด</div></div>
+          <div class="admin-stat-card"><div class="admin-stat-num" id="statOrders">0</div><div class="admin-stat-label">คำสั่งซื้อ</div></div>
+          <div class="admin-stat-card"><div class="admin-stat-num" id="statRevenue">฿0</div><div class="admin-stat-label">รายได้รวม</div></div>
+          <div class="admin-stat-card"><div class="admin-stat-num">4.9⭐</div><div class="admin-stat-label">คะแนนเฉลี่ย</div></div>
+        </div>
+      </div>
+
+      <!-- PRODUCTS ADMIN TAB -->
+      <div class="admin-tab-content" id="tab-products-admin">
+        <h1 class="admin-page-title">จัดการสินค้า</h1>
+        <p class="admin-page-sub">เพิ่ม แก้ไข หรือลบสินค้าในร้าน</p>
+        <div class="admin-form" id="productForm">
+          <h3 id="adminFormTitle">➕ เพิ่มสินค้าใหม่</h3>
+          <input type="hidden" id="editProductId"/>
+          <div class="admin-form-grid">
+            <div class="admin-field"><label>ชื่อสินค้า</label><input type="text" id="pName" placeholder="เช่น แหวนเพชรโซลิแทร์"/></div>
+            <div class="admin-field"><label>หมวดหมู่</label>
+              <select id="pCat"><option>แหวน</option><option>สร้อยคอ</option><option>ต่างหู</option><option>กำไล</option></select>
+            </div>
+            <div class="admin-field"><label>ราคา (บาท)</label><input type="number" id="pPrice" placeholder="35000"/></div>
+            <div class="admin-field"><label>ราคาเดิม (เว้นว่างหากไม่ลด)</label><input type="number" id="pOldPrice" placeholder="45000"/></div>
+            <div class="admin-field"><label>น้ำหนักเพชร (ct)</label><input type="text" id="pCarat" placeholder="1.20"/></div>
+            <div class="admin-field"><label>วัสดุ</label>
+              <select id="pMaterial"><option>ทองคำขาว 18K</option><option>ทองคำ 18K</option><option>ทองคำ 14K</option><option>ทองคำขาว 14K</option><option>แพลตินัม 950</option></select>
+            </div>
+            <div class="admin-field"><label>สีเพชร</label>
+              <select id="pColor"><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option></select>
+            </div>
+            <div class="admin-field"><label>ความสะอาด</label>
+              <select id="pClarity"><option>IF</option><option>VVS1</option><option>VVS2</option><option>VS1</option><option>VS2</option></select>
+            </div>
+            <div class="admin-field"><label>การเจียระไน</label>
+              <select id="pCut"><option>Excellent</option><option>Very Good</option><option>Good</option></select>
+            </div>
+            <div class="admin-field"><label>Badge</label>
+              <select id="pBadge"><option value="">ไม่มี</option><option value="new">ใหม่</option><option value="sale">ลดราคา</option></select>
+            </div>
+            <div class="admin-field"><label>รูปภาพสินค้า (URL)</label><input type="text" id="pImg" placeholder="https://..."/></div>
+            <div class="admin-field"><label>มีตัวเลือกไซส์</label>
+              <select id="pHasSize"><option value="yes">มี (สำหรับแหวน)</option><option value="no">ไม่มี</option></select>
+            </div>
+            <div class="admin-field full"><label>คำอธิบายสินค้า</label><textarea id="pDesc" rows="2" placeholder="อธิบายสินค้าโดยย่อ"></textarea></div>
+          </div>
+          <div style="display:flex;gap:12px;margin-top:8px">
+            <button class="btn btn-gold" onclick="saveProduct()">💾 บันทึกสินค้า</button>
+            <button class="btn btn-outline" onclick="resetProductForm()">รีเซ็ต</button>
+          </div>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th></th><th>ชื่อสินค้า</th><th>หมวดหมู่</th><th>ราคา</th><th>น้ำหนัก</th><th>วัสดุ</th><th>Badge</th><th>จัดการ</th></tr></thead>
+            <tbody id="adminProductsTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ORDERS ADMIN TAB -->
+      <div class="admin-tab-content" id="tab-orders-admin">
+        <h1 class="admin-page-title">คำสั่งซื้อ</h1>
+        <p class="admin-page-sub">รายการสั่งซื้อทั้งหมด</p>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>#</th><th>ลูกค้า</th><th>สินค้า</th><th>ยอดรวม</th><th>ช่องทางชำระ</th><th>สถานะ</th><th>จัดการ</th></tr></thead>
+            <tbody id="adminOrdersTable"></tbody>
+          </table>
+        </div>
+        <div id="noOrders" style="text-align:center;padding:40px;color:var(--text-muted)">ยังไม่มีคำสั่งซื้อ</div>
+      </div>
+
+      <!-- REVIEWS ADMIN -->
+      <div class="admin-tab-content" id="tab-reviews-admin">
+        <h1 class="admin-page-title">รีวิว</h1>
+        <p class="admin-page-sub">รีวิวจากลูกค้า (ฟีเจอร์ขยายได้ในอนาคต)</p>
+        <div style="background:var(--cream);padding:32px;border-radius:2px;text-align:center;color:var(--text-muted)">
+          <div style="font-size:3rem;margin-bottom:12px">⭐</div>
+          <p>ระบบรีวิวอัตโนมัติจะส่งอีเมลขอรีวิวหลังจัดส่งสินค้า 7 วัน</p>
+          <p style="margin-top:8px;font-size:0.85rem">คะแนนเฉลี่ยปัจจุบัน: <strong>4.9 / 5.0</strong> (จาก 3 รีวิว)</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== DATA STORE =====
+// หนูไปใส่ ลิงก์ภาพเอานะ ตั้งแต่ IMG-IMG8 พาร์ทอื่นสเติปเหมือนกันเลย
+const DEFAULT_PRODUCT_IMG = 'https://tse1.mm.bing.net/th/id/OIP.4760lCxfwPuKpXM3VZSYBgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3';
+const DEFAULT_PRODUCT_IMG1 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBshdvbF113XI8V671uwGyw1obbJNDEMoagDpbcV4JkXT69oyZ9W42ww&s=10';
+const DEFAULT_PRODUCT_IMG2 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0auvLlR7qtKSmOOuAzvxfyyhkKZGngHlmRXss7CeCA&s'; //
+const DEFAULT_PRODUCT_IMG3 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs0Ecm_LwUNBm-he5yWeT2dfSYYG1XWvvpIRqa_XlrVg&s=10';
+const DEFAULT_PRODUCT_IMG4 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQWlvxTmvXLh1Ib6YEGeRH_TuOTRvCkNDxXvJ8Zcbv_A&s';
+const DEFAULT_PRODUCT_IMG5 = 'https://merii.co.th/cdn/shop/products/221E0531-01_1_Silver-CZ-pear-design-drop-earrings.jpg?v=1756695024&width=1080';
+const DEFAULT_PRODUCT_IMG6 = 'https://down-th.img.susercontent.com/file/sg-11134201-7rd54-m7aadw4fayb9df';
+const DEFAULT_PRODUCT_IMG7 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQChkk9tdlt9Endjynzf85WhP2Ue4NHBbmc_8hyZmB_Gsf6XUyrMtv8EUc&s=10';
+const DEFAULT_PRODUCT_IMG8 = 'https://down-th.img.susercontent.com/file/th-11134207-7ras8-ma9smk9kcknn19';
+
+//เสร็จแล้วมา ใส่ที่อยู่มันในพาร์ทนี้ได้เลย //ส่วนหน้าอื่นถ้าอยากให้อิโมจิเป็นภาพทำเหมือนกันเลยประกาศไว้ก่อนแล้วค่อยดึงมาใช้
+let products = [
+  { id:1,name: 'แหวนเพชรโซลิแทร์ Classic',cat: 'แหวน',price: 85000,oldPrice: 95000,carat: '1.20',material: 'ทองคำขาว 18K',color: 'E',clarity: 'VVS1',cut: 'Excellent',badge: 'sale',img: DEFAULT_PRODUCT_IMG,hasSize: true,desc: 'แหวนเพชรโซลิแทร์ดีไซน์คลาสสิก เพชรกลมเจียระไน 58 เหลี่ยม'},
+  { id:2, name:'แหวนหมั้นรูปหัวใจ', cat:'แหวน', price:62000, oldPrice:null, carat:'0.80', material:'ทองคำขาว 18K', color:'F', clarity:'VS1', cut:'Excellent', badge:'new', img: DEFAULT_PRODUCT_IMG1, hasSize:true, desc:'แหวนหมั้นเพชรรูปหัวใจ พร้อมเพชรประกอบด้านข้าง' },
+  { id:3, name:'แหวน Pave Diamond', cat:'แหวน', price:48000, oldPrice:null, carat:'0.45', material:'ทองคำ 18K', color:'G', clarity:'VS2', cut:'Very Good', badge:'', img: DEFAULT_PRODUCT_IMG2, hasSize:true, desc:'แหวนเพชรเรียงราย Pave Setting สวยงามหรูหรา' },
+  { id:4, name:'สร้อยคอเพชร Princess Cut', cat:'สร้อยคอ', price:72000, oldPrice:80000, carat:'0.90', material:'ทองคำขาว 18K', color:'D', clarity:'IF', cut:'Excellent', badge:'sale', img: DEFAULT_PRODUCT_IMG3, hasSize:false, desc:'สร้อยคอเพชร Princess Cut บนโซ่ทองคำขาว 18K ความยาว 42 ซม.' },
+  { id:5, name:'สร้อยคอทองคำ Infinity', cat:'สร้อยคอ', price:35000, oldPrice:null, carat:'0.30', material:'ทองคำ 18K', color:'F', clarity:'VS1', cut:'Excellent', badge:'new', img: DEFAULT_PRODUCT_IMG4, hasSize:false, desc:'สร้อยคอดีไซน์ Infinity สัญลักษณ์แห่งความรักนิรันดร์' },
+  { id:6, name:'ต่างหูเพชรหยดน้ำ', cat:'ต่างหู', price:55000, oldPrice:null, carat:'0.60', material:'ทองคำขาว 18K', color:'E', clarity:'VVS2', cut:'Excellent', badge:'', img: DEFAULT_PRODUCT_IMG5, hasSize:false, desc:'ต่างหูเพชรทรงหยดน้ำ Pear Shape สวมใส่ง่ายเหมาะทุกโอกาส' },
+  { id:7, name:'ต่างหูเพชรกลมคลาสสิก', cat:'ต่างหู', price:42000, oldPrice:48000, carat:'0.40', material:'แพลตินัม 950', color:'D', clarity:'VVS1', cut:'Excellent', badge:'sale', img: DEFAULT_PRODUCT_IMG6, hasSize:false, desc:'ต่างหูเพชรกลมคลาสสิก บนฐานแพลตินัม 950 สวยงามหรูหรา' },
+  { id:8, name:'กำไลเพชร Tennis Bracelet', cat:'กำไล', price:120000, oldPrice:null, carat:'3.00', material:'ทองคำขาว 18K', color:'F', clarity:'VS1', cut:'Excellent', badge:'new', img: DEFAULT_PRODUCT_IMG7, hasSize:false, desc:'กำไลเพชร Tennis Bracelet เพชรเรียงราย 3 กะรัต ความยาว 18 ซม.' },
+  { id:9, name:'กำไลทองคำ Bangle', cat:'กำไล', price:28000, oldPrice:null, carat:'0.15', material:'ทองคำ 18K', color:'G', clarity:'VS2', cut:'Very Good', badge:'', img: DEFAULT_PRODUCT_IMG8, hasSize:false, desc:'กำไลทองคำ Bangle ดีไซน์เรียบหรู สวมใส่ได้ทุกวัน' },
+];
+let cart = [];
+let orders = [];
+let wishlist = [];
+let currentFilter = 'ทั้งหมด';
+let currentSort = 'default';
+let currentProductId = null;
+let currentQty = 1;
+let selectedSize = null;
+let currentPayment = 'transfer';
+
+const ringImgs = ['💍','💎','👑'];
+const necklaceImgs = ['📿','✨','🌟'];
+const earringImgs = ['💧','🌟','⭐'];
+const braceletImgs = ['🔮','⭕','🌸'];
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  updateCategoryCounts();
+  updateCartBadge();
+  updateAdminStats();
+  // Announce bar pushes nav down
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+    if (window.scrollY > 40) {
+      nav.style.top = '0';
+    } else {
+      const bar = document.getElementById('announceBar');
+      nav.style.top = bar && bar.style.display !== 'none' ? '40px' : '0';
+    }
+  });
+});
+
+// ===== HELPERS =====
+function fmt(n) { return '฿' + Number(n).toLocaleString('th-TH'); }
+function showToast(msg, dur=2800) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), dur);
+}
+function smoothScroll(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+  closeCart(); closeAll();
+}
+function toggleSearch() {
+  const sb = document.getElementById('searchBar');
+  sb.classList.toggle('open');
+  if (sb.classList.contains('open')) document.getElementById('searchInput').focus();
+}
+function toggleMobileMenu() { /* simplified */ }
+function closeAll() {
+  document.getElementById('overlay').classList.remove('active');
+}
+
+// ===== PRODUCT RENDERING =====
+function getFilteredSorted() {
+  let list = [...products];
+  if (currentFilter !== 'ทั้งหมด') list = list.filter(p => p.cat === currentFilter);
+  const q = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+  if (q) list = list.filter(p => p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+  if (currentSort === 'price-asc') list.sort((a,b) => a.price - b.price);
+  else if (currentSort === 'price-desc') list.sort((a,b) => b.price - a.price);
+  else if (currentSort === 'name') list.sort((a,b) => a.name.localeCompare(b.name,'th'));
+  return list;
+}
+
+function renderProducts() {
+  const list = getFilteredSorted();
+  const grid = document.getElementById('productsGrid');
+  const noRes = document.getElementById('noResults');
+  if (!list.length) { grid.innerHTML = ''; noRes.classList.remove('hidden'); return; }
+  noRes.classList.add('hidden');
+  grid.innerHTML = list.map(p => {
+    const inWish = wishlist.includes(p.id);
+    const badgeHtml = p.badge === 'new' ? '<span class="badge badge-new">NEW</span>' : p.badge === 'sale' ? '<span class="badge badge-sale">SALE</span>' : '';
+    return `<div class="product-card" id="pcard-${p.id}">
+      <div class="product-img-wrap" onclick="openProduct(${p.id})">
+        <div class="product-img-placeholder"><img src="${p.img || DEFAULT_PRODUCT_IMG}" alt="${p.name}" loading="lazy"></div>
+        <div class="product-badges">${badgeHtml}</div>
+        <div class="product-actions-hover">
+          <button class="product-action-btn ${inWish?'wished':''}" onclick="event.stopPropagation();toggleWishlist(${p.id},this)" title="Wishlist">${inWish?'♥':'♡'}</button>
+          <button class="product-action-btn" onclick="event.stopPropagation();openProduct(${p.id})" title="ดูรายละเอียด">🔍</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-category">${p.cat}</div>
+        <div class="product-name" onclick="openProduct(${p.id})">${p.name}</div>
+        <div class="product-details-mini">เพชร ${p.carat}ct · ${p.color} / ${p.clarity} / ${p.cut}</div>
+        <div class="product-pricing">
+          <span class="product-price">${fmt(p.price)}</span>
+          ${p.oldPrice ? `<span class="product-price-old">${fmt(p.oldPrice)}</span>` : ''}
+        </div>
+        <div class="product-footer">
+          <span class="product-material">${p.material}</span>
+          <button class="add-to-cart-btn" onclick="quickAddToCart(${p.id})">+ หยิบ</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterCategory(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  else {
+    document.querySelectorAll('.filter-tab').forEach(b => { if (b.textContent.includes(cat) || (cat==='ทั้งหมด' && b.textContent==='ทั้งหมด')) b.classList.add('active'); });
+  }
+  renderProducts();
+  smoothScroll('products');
+}
+
+function sortProducts(val) { currentSort = val; renderProducts(); }
+
+function handleSearch(q) { renderProducts(); }
+
+function updateCategoryCounts() {
+  const cats = { 'แหวน': 'ring-count', 'สร้อยคอ': 'necklace-count', 'ต่างหู': 'earring-count', 'กำไล': 'bracelet-count' };
+  Object.entries(cats).forEach(([cat, id]) => {
+    const count = products.filter(p => p.cat === cat).length;
+    const el = document.getElementById(id);
+    if (el) el.textContent = count + ' ชิ้น';
+  });
+}
+
+// ===== PRODUCT MODAL =====
+function openProduct(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  currentProductId = id; currentQty = 1; selectedSize = null;
+  document.getElementById('qtyDisplay').textContent = 1;
+  document.getElementById('modalCat').textContent = p.cat;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalPrice').textContent = fmt(p.price);
+  document.getElementById('modalPriceOld').textContent = p.oldPrice ? fmt(p.oldPrice) : '';
+  document.getElementById('modalImgZoom').innerHTML = `<img src="${p.img || DEFAULT_PRODUCT_IMG}" alt="${p.name}">`;
+  document.getElementById('modalSpecs').innerHTML = [
+    ['น้ำหนักเพชร', p.carat + ' กะรัต'],
+    ['วัสดุ', p.material],
+    ['สีเพชร', 'Color ' + p.color],
+    ['ความสะอาด', 'Clarity ' + p.clarity],
+    ['การเจียระไน', p.cut],
+    ['ใบรับรอง', 'GIA Certificate'],
+  ].map(([l,v]) => `<div class="spec-row"><div class="spec-label">${l}</div><div class="spec-value">${v}</div></div>`).join('');
+  const sizeSection = document.getElementById('modalSizeSection');
+  if (p.hasSize) {
+    sizeSection.style.display = 'block';
+    const sizes = [46,47,49,50,51,52,54,55,56,57,59,60];
+    document.getElementById('modalSizeOptions').innerHTML = sizes.map(s => `<button class="size-btn" onclick="selectSize(this,${s})">${s}</button>`).join('');
+  } else { sizeSection.style.display = 'none'; }
+  document.getElementById('productModal').classList.add('open');
+  document.getElementById('modalOverlay').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+  document.getElementById('productModal').classList.remove('open');
+  document.getElementById('modalOverlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function selectSize(btn, size) {
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedSize = size;
+}
+
+function changeQty(d) {
+  currentQty = Math.max(1, currentQty + d);
+  document.getElementById('qtyDisplay').textContent = currentQty;
+}
+
+function addToCartFromModal() {
+  const p = products.find(x => x.id === currentProductId);
+  if (!p) return;
+  if (p.hasSize && !selectedSize) { showToast('กรุณาเลือกไซส์ก่อนค่ะ'); return; }
+  addToCart(p, currentQty, selectedSize);
+  closeProductModal();
+}
+
+function quickAddToCart(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  if (p.hasSize) { openProduct(id); return; }
+  addToCart(p, 1, null);
+}
+
+function toggleWishlist(id, btn) {
+  const idx = wishlist.indexOf(id);
+  if (idx === -1) { wishlist.push(id); btn.textContent = '♥'; btn.classList.add('wished'); showToast('เพิ่มใน Wishlist แล้ว ♥'); }
+  else { wishlist.splice(idx,1); btn.textContent = '♡'; btn.classList.remove('wished'); showToast('ลบออกจาก Wishlist แล้ว'); }
+}
+
+function toggleWishlistFromModal() {
+  const idx = wishlist.indexOf(currentProductId);
+  if (idx === -1) { wishlist.push(currentProductId); showToast('เพิ่มใน Wishlist แล้ว ♥'); }
+  else { wishlist.splice(idx,1); showToast('ลบออกจาก Wishlist แล้ว'); }
+  renderProducts();
+}
+
+// ===== SIZE GUIDE =====
+function openSizeGuide() {
+  document.getElementById('sizeGuideModal').classList.add('open');
+  document.getElementById('sizeGuideOverlay').style.display = 'block';
+}
+function closeSizeGuide() {
+  document.getElementById('sizeGuideModal').classList.remove('open');
+  document.getElementById('sizeGuideOverlay').style.display = 'none';
+}
+
+// ===== CART =====
+function addToCart(product, qty=1, size=null) {
+  const key = product.id + (size ? '-' + size : '');
+  const existing = cart.find(c => c.key === key);
+  if (existing) { existing.qty += qty; }
+  else { cart.push({ key, id: product.id, name: product.name, img: product.img || DEFAULT_PRODUCT_IMG, price: product.price, size, cat: product.cat, material: product.material, qty }); }
+  updateCartBadge();
+  renderCartItems();
+  showToast(`เพิ่ม "${product.name}" ลงตะกร้าแล้ว 🛍️`);
+  openCart();
+}
+
+function updateCartBadge() {
+  const total = cart.reduce((s,c) => s + c.qty, 0);
+  document.getElementById('cartCount').textContent = total;
+}
+
+function openCart() {
+  document.getElementById('cartPanel').classList.add('open');
+  document.getElementById('overlay').classList.add('active');
+  renderCartItems();
+}
+function closeCart() {
+  document.getElementById('cartPanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('active');
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cartItems');
+  const footer = document.getElementById('cartFooter');
+  const empty = document.getElementById('cartEmpty');
+  document.getElementById('cartItemCount').textContent = cart.length ? `(${cart.reduce((s,c)=>s+c.qty,0)} ชิ้น)` : '';
+  if (!cart.length) {
+    if (empty) empty.style.display = 'block';
+    footer.style.display = 'none';
+    return;
+  }
+  if (empty) empty.style.display = 'none';
+  footer.style.display = 'block';
+  const total = cart.reduce((s,c) => s + c.price * c.qty, 0);
+  document.getElementById('cartTotal').textContent = fmt(total);
+  const itemsHtml = cart.map(c => `
+    <div class="cart-item" id="citem-${c.key}">
+      <div class="cart-item-img"><img src="${c.img || DEFAULT_PRODUCT_IMG}" alt="${c.name}"></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${c.name}</div>
+        <div class="cart-item-meta">${c.cat}${c.size ? ' · ไซส์ ' + c.size : ''} · ${c.material}</div>
+        <div class="cart-item-controls">
+          <div class="cart-item-qty">
+            <button class="cart-qty-btn" onclick="updateCartQty('${c.key}',-1)">−</button>
+            <span class="cart-qty-num">${c.qty}</span>
+            <button class="cart-qty-btn" onclick="updateCartQty('${c.key}',1)">+</button>
+          </div>
+          <span class="cart-item-price">${fmt(c.price * c.qty)}</span>
+          <button class="cart-remove" onclick="removeFromCart('${c.key}')">🗑</button>
+        </div>
+      </div>
+    </div>`).join('');
+  container.innerHTML = (empty ? empty.outerHTML : '') + itemsHtml;
+  const e2 = container.querySelector('#cartEmpty');
+  if (e2) e2.style.display = 'none';
+}
+
+function updateCartQty(key, d) {
+  const item = cart.find(c => c.key === key);
+  if (!item) return;
+  item.qty = Math.max(1, item.qty + d);
+  updateCartBadge(); renderCartItems();
+}
+
+function removeFromCart(key) {
+  cart = cart.filter(c => c.key !== key);
+  updateCartBadge(); renderCartItems();
+  showToast('ลบสินค้าออกจากตะกร้าแล้ว');
+}
+
+// ===== CHECKOUT =====
+function openCheckout() {
+  if (!cart.length) { showToast('กรุณาเพิ่มสินค้าในตะกร้าก่อน'); return; }
+  closeCart();
+  renderOrderSummary();
+  document.getElementById('checkoutModal').classList.add('open');
+  document.getElementById('checkoutOverlay').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeCheckout() {
+  document.getElementById('checkoutModal').classList.remove('open');
+  document.getElementById('checkoutOverlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function renderOrderSummary() {
+  const total = cart.reduce((s,c) => s + c.price * c.qty, 0);
+  const html = cart.map(c => `<div class="order-item"><span>${c.name}${c.size?' (ไซส์'+c.size+')':''} × ${c.qty}</span><span>${fmt(c.price*c.qty)}</span></div>`).join('') +
+    `<hr class="order-divider"><div class="order-item"><span style="color:var(--success)">จัดส่ง</span><span style="color:var(--success)">ฟรี</span></div><div class="order-total"><span>ยอดรวม</span><span>${fmt(total)}</span></div>`;
+  document.getElementById('orderSummary').innerHTML = html;
+}
+
+function selectPayment(el, type) {
+  currentPayment = type;
+  document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+  el.classList.add('selected');
+  const detail = document.getElementById('paymentDetail');
+  const map = { transfer:'ธนาคารกสิกรไทย: 123-4-56789-0 / ชื่อ: THE CARAT CO.,LTD.', promptpay:'PromptPay: 02-123-4567 (THE CARAT)', credit:'กรุณาเตรียมบัตรเครดิต/เดบิต (ดำเนินการผ่านระบบ 3D Secure)', truemoney:'TrueMoney Wallet: 089-XXX-XXXX', installment:'ผ่อน 0% 3/6/10 เดือน สำหรับบัตรที่ร่วมรายการ' };
+  detail.textContent = map[type] || '';
+}
+
+function placeOrder() {
+  const name = document.getElementById('co-name').value.trim();
+  const phone = document.getElementById('co-phone').value.trim();
+  if (!name || !phone) { showToast('กรุณากรอกชื่อและเบอร์โทรศัพท์'); return; }
+  const total = cart.reduce((s,c) => s + c.price*c.qty, 0);
+  const order = { id: Date.now(), name, phone, email: document.getElementById('co-email').value, addr: document.getElementById('co-addr').value, items: [...cart], total, payment: currentPayment, status: 'pending', date: new Date().toLocaleDateString('th-TH') };
+  orders.push(order);
+  cart = [];
+  updateCartBadge();
+  closeCheckout();
+  updateAdminStats();
+  renderAdminOrders();
+  showToast('✅ สั่งซื้อสำเร็จ! ทีมงานจะติดต่อกลับเร็วๆ นี้', 4000);
+  setTimeout(() => showToast('📦 หมายเลขคำสั่งซื้อ: #' + order.id, 4000), 3200);
+}
+
+// ===== ADMIN =====
+function openAdmin() {
+  document.getElementById('adminPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderAdminProductsTable();
+  renderAdminOrders();
+  updateAdminStats();
+}
+function closeAdmin() {
+  document.getElementById('adminPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function showAdminTab(id, btn) {
+  document.querySelectorAll('.admin-tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.admin-menu-item').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function updateAdminStats() {
+  const rev = orders.reduce((s,o) => s + o.total, 0);
+  document.getElementById('statProducts').textContent = products.length;
+  document.getElementById('statOrders').textContent = orders.length;
+  document.getElementById('statRevenue').textContent = fmt(rev);
+}
+
+function renderAdminProductsTable() {
+  const tbody = document.getElementById('adminProductsTable');
+  tbody.innerHTML = products.map(p => `<tr>
+    <td><div class="admin-product-thumb"><img src="${p.img || DEFAULT_PRODUCT_IMG}" alt="${p.name}"></div></td>
+    <td><strong>${p.name}</strong><br><span style="font-size:0.75rem;color:var(--text-muted)">${p.desc.substring(0,40)}...</span></td>
+    <td>${p.cat}</td>
+    <td>${fmt(p.price)}</td>
+    <td>${p.carat} ct</td>
+    <td>${p.material}</td>
+    <td>${p.badge ? '<span class="badge badge-'+p.badge+'">'+p.badge.toUpperCase()+'</span>' : '—'}</td>
+    <td style="display:flex;gap:6px;flex-wrap:wrap">
+      <button class="admin-action-btn edit" onclick="editProduct(${p.id})">✏️ แก้ไข</button>
+      <button class="admin-action-btn del" onclick="deleteProduct(${p.id})">🗑 ลบ</button>
+    </td>
+  </tr>`).join('');
+}
+
+function renderAdminOrders() {
+  const tbody = document.getElementById('adminOrdersTable');
+  const noO = document.getElementById('noOrders');
+  if (!orders.length) { tbody.innerHTML = ''; noO.style.display = 'block'; return; }
+  noO.style.display = 'none';
+  const payNames = { transfer:'โอนเงิน', promptpay:'PromptPay', credit:'บัตรเครดิต', truemoney:'TrueMoney', installment:'ผ่อนชำระ' };
+  tbody.innerHTML = orders.map((o,i) => `<tr>
+    <td>#${i+1}</td>
+    <td>${o.name}<br><span style="font-size:0.75rem;color:var(--text-muted)">${o.phone}</span></td>
+    <td>${o.items.map(it=>it.name).join(', ')}</td>
+    <td>${fmt(o.total)}</td>
+    <td>${payNames[o.payment]||o.payment}</td>
+    <td><select class="admin-field" onchange="updateOrderStatus(${o.id},this.value)" style="padding:4px 8px;font-size:0.78rem;border:1px solid var(--cream);border-radius:2px">
+      <option value="pending" ${o.status==='pending'?'selected':''}>รอยืนยัน</option>
+      <option value="confirmed" ${o.status==='confirmed'?'selected':''}>ยืนยันแล้ว</option>
+      <option value="shipped" ${o.status==='shipped'?'selected':''}>จัดส่งแล้ว</option>
+    </select></td>
+    <td>${o.date}</td>
+  </tr>`).join('');
+}
+
+function updateOrderStatus(orderId, status) {
+  const o = orders.find(x => x.id === orderId);
+  if (o) { o.status = status; showToast('อัปเดตสถานะคำสั่งซื้อแล้ว'); }
+}
+
+function saveProduct() {
+  const editId = parseInt(document.getElementById('editProductId').value);
+  const data = {
+    name: document.getElementById('pName').value.trim(),
+    cat: document.getElementById('pCat').value,
+    price: parseInt(document.getElementById('pPrice').value),
+    oldPrice: document.getElementById('pOldPrice').value ? parseInt(document.getElementById('pOldPrice').value) : null,
+    carat: document.getElementById('pCarat').value.trim(),
+    material: document.getElementById('pMaterial').value,
+    color: document.getElementById('pColor').value,
+    clarity: document.getElementById('pClarity').value,
+    cut: document.getElementById('pCut').value,
+    badge: document.getElementById('pBadge').value,
+    img: document.getElementById('pImg').value.trim() || DEFAULT_PRODUCT_IMG,
+    hasSize: document.getElementById('pHasSize').value === 'yes',
+    desc: document.getElementById('pDesc').value.trim(),
+  };
+  if (!data.name || !data.price) { showToast('กรุณากรอกชื่อสินค้าและราคา'); return; }
+  if (editId) {
+    const idx = products.findIndex(p => p.id === editId);
+    if (idx !== -1) { products[idx] = { ...products[idx], ...data }; showToast('✅ แก้ไขสินค้าเรียบร้อย'); }
+  } else {
+    data.id = Date.now();
+    products.push(data);
+    showToast('✅ เพิ่มสินค้าใหม่เรียบร้อย');
+  }
+  resetProductForm();
+  renderAdminProductsTable();
+  renderProducts();
+  updateCategoryCounts();
+  updateAdminStats();
+}
+
+function editProduct(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('editProductId').value = p.id;
+  document.getElementById('adminFormTitle').textContent = '✏️ แก้ไขสินค้า';
+  document.getElementById('pName').value = p.name;
+  document.getElementById('pCat').value = p.cat;
+  document.getElementById('pPrice').value = p.price;
+  document.getElementById('pOldPrice').value = p.oldPrice || '';
+  document.getElementById('pCarat').value = p.carat;
+  document.getElementById('pMaterial').value = p.material;
+  document.getElementById('pColor').value = p.color;
+  document.getElementById('pClarity').value = p.clarity;
+  document.getElementById('pCut').value = p.cut;
+  document.getElementById('pBadge').value = p.badge || '';
+  document.getElementById('pImg').value = p.img || '';
+  document.getElementById('pHasSize').value = p.hasSize ? 'yes' : 'no';
+  document.getElementById('pDesc').value = p.desc;
+  document.getElementById('productForm').scrollIntoView({ behavior:'smooth' });
+}
+
+function deleteProduct(id) {
+  if (!confirm('ยืนยันการลบสินค้านี้?')) return;
+  products = products.filter(p => p.id !== id);
+  renderAdminProductsTable();
+  renderProducts();
+  updateCategoryCounts();
+  updateAdminStats();
+  showToast('ลบสินค้าเรียบร้อย');
+}
+
+function resetProductForm() {
+  document.getElementById('editProductId').value = '';
+  document.getElementById('adminFormTitle').textContent = '➕ เพิ่มสินค้าใหม่';
+  ['pName','pOldPrice','pCarat','pImg','pDesc'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('pPrice').value = '';
+  document.getElementById('pBadge').value = '';
+}
+</script>
+</body>
+</html>
